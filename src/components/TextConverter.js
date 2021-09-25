@@ -70,7 +70,7 @@ export default function TextConverter(props) {
         <div className="container my-3"> 
             <h1>{props.Head01}</h1>
             <div className="mb-3 ">
-                <textarea className="form-control" onChange={HandleOnChange} value={text} id="exampleFormControlTextarea1" rows="10"></textarea>
+                <textarea className="form-control" onChange={HandleOnChange} style={{bckgroundColor: props.mode===`dark`?`grey`:`black`}} value={text} id="exampleFormControlTextarea1" rows="10"></textarea>
             </div>
             <button type="button" onClick={handletextclick} className="btn btn-primary">Convert to uppercase</button>
             <button type="button" onClick={handletextclicklc} className="btn btn-primary">Convert to Lowecase</button>

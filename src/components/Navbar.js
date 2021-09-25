@@ -1,39 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
     return (
         <div className="App">
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">{props.title}</a>
+                    <Link className="navbar-brand" to="/">{props.title}</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">{props.Home}</a>
+                                <Link className="nav-link active" aria-current="page" to="/home">{props.Home}</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/">{props.About}</a>
+                                <Link className="nav-link" to="/about">{props.About}</Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {props.Dropdown}
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="/">{props.op1}</a></li>
+                                    <li><Link className="dropdown-item" to="/op1">{props.op1}</Link></li>
                                 </ul>
                             </li>
 
                         </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <button type="button my-3" className="btn btn-success ">green</button>
+                        <button type="button my-3" className="btn btn-danger ">red</button>
+                        <button type="button my-3" className="btn btn-warning ">Yellow</button>
+                        <button type="button" className="btn btn-dark ">black</button>
+                        <button type="button" onClick={props.toggleMode} className="btn btn-light ">white</button>
                     </div>
+                   
                 </div>
+                
             </nav>
         </div>
     )
